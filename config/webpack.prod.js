@@ -1,8 +1,8 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin'); //  解构赋值
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');    // 压缩css文件
-const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');  // 提取css成单独文件
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');    // 提取css成单独文件
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');  // 压缩css文件
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
 module.exports = {
@@ -23,38 +23,9 @@ module.exports = {
                     MiniCssExtractPlugin.loader,
                     "css-loader",
                     "postcss-loader",
-                    // {
-                    //     loader: 'postcss-loader',
-                    //     options: {
-                    //         ident: 'postcss',   //声明使用
-                    //         plugins: () => [
-                    //             require('postcss-flexbugs-fixes'),
-                    //             require('postcss-preset-env')({
-                    //                 autoprefixer: {
-                    //                     flexbox: 'no-2009', //不能出现2009的老语法
-                    //                 },
-                    //                 stage: 3,
-                    //             }),
-                    //             require('postcss-normalize')(),
-                    //         ],
-                    //         sourceMap: true,    //生成映射文件
-                    //     },
-                    // },
                     "sass-loader"
                 ]
             },
-            // {
-            //     test: /\.js$/,
-            //     exclude: /(node_modules|bower_components)/,
-            //     use: {
-            //         loader: 'babel-loader',
-            //         options: {
-            //             presets: ['@babel/preset-env'],
-            //             plugins: ['@babel/transform-runtime'],
-            //             cacheDirectory: true //开启babel缓存
-            //         }
-            //     }
-            // },
             {
                 test: /\.(png|jpg|gif)$/i,
                 use: [
@@ -111,6 +82,7 @@ module.exports = {
             filename: "css/[hash:5].css",
         }),
         new OptimizeCssAssetsPlugin({
+            cssProcessor: require('cssnano'),
             cssProcessorPluginOptions: {
                 preset: ['default',{ discardComments: {removeAll: true}}],
             },
