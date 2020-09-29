@@ -1,0 +1,9 @@
+{
+    "presets": [
+        "@babel/preset-env" //转换ES6语法
+    ],
+    "plugins": [
+        "@babel/plugin-transform-runtime"   //API好的全局对象转译器
+    ],
+    "cacheDirectory": true //开启babel缓存
+}

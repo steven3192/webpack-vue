@@ -22,38 +22,39 @@ module.exports = {
                 use: [
                     MiniCssExtractPlugin.loader,
                     "css-loader",
-                    {
-                        loader: 'postcss-loader',
-                        options: {
-                            ident: 'postcss',   //声明使用
-                            plugins: () => [
-                                require('postcss-flexbugs-fixes'),
-                                require('postcss-preset-env')({
-                                    autoprefixer: {
-                                        flexbox: 'no-2009', //不能出现2009的老语法
-                                    },
-                                    stage: 3,
-                                }),
-                                require('postcss-normalize')(),
-                            ],
-                            sourceMap: true,    //生成映射文件
-                        },
-                    },
+                    "postcss-loader",
+                    // {
+                    //     loader: 'postcss-loader',
+                    //     options: {
+                    //         ident: 'postcss',   //声明使用
+                    //         plugins: () => [
+                    //             require('postcss-flexbugs-fixes'),
+                    //             require('postcss-preset-env')({
+                    //                 autoprefixer: {
+                    //                     flexbox: 'no-2009', //不能出现2009的老语法
+                    //                 },
+                    //                 stage: 3,
+                    //             }),
+                    //             require('postcss-normalize')(),
+                    //         ],
+                    //         sourceMap: true,    //生成映射文件
+                    //     },
+                    // },
                     "sass-loader"
                 ]
             },
-            {
-                test: /\.js$/,
-                exclude: /(node_modules|bower_components)/,
-                use: {
-                    loader: 'babel-loader',
-                    options: {
-                        presets: ['@babel/preset-env'],
-                        plugins: ['@babel/transform-runtime'],
-                        cacheDirectory: true //开启babel缓存
-                    }
-                }
-            },
+            // {
+            //     test: /\.js$/,
+            //     exclude: /(node_modules|bower_components)/,
+            //     use: {
+            //         loader: 'babel-loader',
+            //         options: {
+            //             presets: ['@babel/preset-env'],
+            //             plugins: ['@babel/transform-runtime'],
+            //             cacheDirectory: true //开启babel缓存
+            //         }
+            //     }
+            // },
             {
                 test: /\.(png|jpg|gif)$/i,
                 use: [
