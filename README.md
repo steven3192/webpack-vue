@@ -1,5 +1,5 @@
-##基于webpack搭建的vue
-###使用步骤
+## 基于webpack搭建的vue
+### 使用步骤
 ```
 #克隆项目
 git clone https://github.com/steven3192/webpack-vue.git
@@ -11,7 +11,7 @@ npm install
 npm run dev
 ```
 
-###初始化项目
+### 初始化项目
 新建目录，初始化项目
 ```
 npm init
@@ -67,11 +67,11 @@ npm init
     "not ie <= 8"
   ]
 ```
-###安装依赖
+### 安装依赖
 ```
 npm install
 ```
-###配置babel
+### 配置babel
 在根目录下新建一个.babelrc文件
 ```
 {
@@ -94,7 +94,7 @@ npm install
     ]
 }
 ```
-###配置postcss
+### 配置postcss
 在根目录新建postcss.config.js文件
 ```
 module.exports = {
@@ -104,7 +104,7 @@ module.exports = {
     sourceMap: true
 }
 ```
-###配置开发环境
+### 配置开发环境
 在根目录新建webpack.dev.js作为开发环境的配置
 ```
 const path = require('path');
@@ -191,7 +191,7 @@ module.exports = {
     devtool: 'cheap-module-eval-source-map' // 开发
 }
 ```
-###配置生产环境
+### 配置生产环境
 在根目录新建webpack.prod.js
 ```
 const path = require('path');
@@ -304,14 +304,14 @@ module.exports = {
     devtool: 'cheap-module-source-map' // 开发
 }
 ```
-###配置script命令
+### 配置script命令
 ```
   "scripts": {
     "dev": "webpack-dev-server --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js"
   },
 ```
-###新建public目录，新建public/index.html文件
+### 新建public目录，新建public/index.html文件
 ```
 <!DOCTYPE html>
 <html lang="en">
@@ -326,7 +326,7 @@ module.exports = {
 </body>
 </html>
 ```
-###新建src目录
+### 新建src目录
 ```
 //main.js
 import Vue from 'vue'
@@ -361,11 +361,11 @@ export default {
 </style>
 
 ```
-###运行程序
+### 运行程序
 ```
 npm run dev
 ```
-###打包
+### 打包
 ```
 npm run build
 ```
